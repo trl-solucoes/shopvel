@@ -1,0 +1,67 @@
+body{
+	background-color: red ;
+}
+
+.normal{
+	background-color: white;
+}
+
+.cabecalho{
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.cabecalho > li > a{
+	color: white;
+}
+
+.cabecalho > li > a:hover{
+	background-color: #ffcc00;
+	color: black;
+}
+.clearfix{
+	border-top: 1px solid red;
+}
+
+.tabela-frente{
+	margin-top: 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 2px solid red;
+	font-weight: bold;
+}
+
+.tabela-frente > tbody > tr > td > a{
+	color: black;
+}
+
+.busca > input, .busca-btn{
+	background-color: #ffcc00;
+	color: black;
+	border: none;
+}
+.busca-btn:hover{
+	background-color: red;
+	color: white;
+	border:1px solid #ffcc00;
+}
+.btn-detail{
+	background-color: red;
+	color: white;
+	border: none;	
+}
+
+.btn-detail:hover{
+	background-color: #ffcc00;
+	color: black;
+}
+.thumbnail>h1{
+	margin-top: 5px;
+	font-size: 30px;
+	font-weight: bold;
+	color:red;
+}
+.input-qtd{
+	border:2px solid red;
+}
