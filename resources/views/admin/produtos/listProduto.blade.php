@@ -39,7 +39,6 @@
 		    @endforeach
 		    </tbody>
 		</table>
-		{{$listprodutos->links()}}
 	</div>		
 </div>
 @stop
