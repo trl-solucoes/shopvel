@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
 use Shoppvel\Models\Produto;
 use Shoppvel\Models\Marca;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProdutoController extends Controller {
 
@@ -31,13 +34,19 @@ class ProdutoController extends Controller {
     }
 
     function listProduto(){
-        $produtos['listprodutos'] = Produto::paginate(20);
+        $produtos['listprodutos'] = Produto::all();
         return view('admin.produtos.listProduto', $produtos);
     }
 
     function formProduto(){
         $marcas['listmarcas'] = Marca::all();
         return view('admin.produtos.cadProduto', $marcas);
+    }
+
+    public function limpaVariavel($var){
+        $novo = preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/"),explode(" ","a A e E i I o O u U n N"),$var);
+        $novo = str_replace(" ", "", $novo);
+        return $novo;
     }
 
     function salvar(Request $request) {
@@ -48,9 +57,15 @@ class ProdutoController extends Controller {
         $produto->marca_id = $request->marca_id;
         $produto->qtde_estoque = $request->qtde_estoque;
         $produto->preco_venda = $request->preco_venda;
-        $produto->imagem_nome = $request->imagem_nome;
         $produto->destacado = $request->destacado;
+
+        $nome_foto = ProdutoController::limpaVariavel($request->nome);
+        $foto = $request->file('imagem_nome')->getClientOriginalExtension();
+        $request->file('imagem_nome')->move(base_path().'/storage/app/public/', $nome_foto.'.'.$foto);
+
+        $produto->imagem_nome = $nome_foto.'.'.$foto;
         $produto->save();
+
         \Session::flash('mensagens-sucesso', 'Cadastrado com Sucesso');
         return redirect()->action('ProdutoController@listProduto')->with('mensagens-sucesso', 'Cadastrado com Sucesso!');
     }

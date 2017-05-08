@@ -39,7 +39,6 @@
 		    @endforeach
 		    </tbody>
 		</table>
-		{{$listprodutos->links()}}
 	</div>		
 </div>
 <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
