@@ -1,7 +1,7 @@
 @extends('layouts.frente-loja')
 
 @section('conteudo')
-<div class='col-sm-12'>
+<div class="col-sm-12 normal">
     <div class="page-header text-muted">
         {{count($produtos)}} produtos em destaque
     </div>

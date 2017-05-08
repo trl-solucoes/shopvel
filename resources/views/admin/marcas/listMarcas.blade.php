@@ -27,7 +27,7 @@
 		        
 		        <td>
 		            <a href="editMarca/{{$marca->id}}" class="btn busca-btn btn-sm">editar</a>
-		            <a href="deleteMarca/{{$marca->id}}" class="btn btn-danger btn-sm">excluir</a>
+		            <button onclick="pegaId({{$marca->id}},'{{$marca->nome}}')" id="abrirModal" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal" >Excluir</button></td>
 		        </td>
 		    </tr>
 		    @endforeach
@@ -35,5 +35,31 @@
 		</table>
 	</div>
 </div>
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span></button> 
+                </div>  
+                <div class="modal-body">
+                   <h4 class="alert alert-danger" id="modalLabel">Deseja realmente excluir a marca <strong id="nomeExclui"></strong>?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a id="sim" href="" title="Confirmar" class="btn btn-danger ">Sim</a>
+                  <a href="{{ route('admin.listMarca') }}" title="Cancelar" class="btn btn-success ">Não</a>
+                </div>   
+            </div>
+        </div>
+    </div>
+  <script type="text/javascript">
+    function pegaId(id,nome ){
+      var idexcluir=id;
+      var nomeExcluir=nome;
+      sim.setAttribute("href","deleteMarca/"+idexcluir);
+      document.getElementById("nomeExclui").innerHTML = nome;
+
+    } 
+</script>
 
 @stop

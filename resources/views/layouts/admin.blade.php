@@ -14,6 +14,7 @@
         <!-- Bootstrap core CSS -->
         <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
+
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="{{asset('bootstrap/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
 
@@ -21,13 +22,17 @@
         <link href="justified-nav.css" rel="stylesheet">
 
         <link href="{{asset('css/default.css')}}" rel="stylesheet">
+        
 
+        
         <script src="{{asset('js/jquery-3.2.0.min.js')}}"></script>
         <script src="{{asset('js/dataTables/jquery.dataTables.js')}}"></script>
         <script src="{{asset('js/dataTables/dataTables.bootstrap.js')}}"></script>
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="{{asset('bootstrap/js/ie-emulation-modes-warning.js')}}"></script>
+         <!-- Script JS bootstrap para os modais-->
+        <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -46,38 +51,52 @@
             <div class="row normal">
                 <div class="col-lg-2">
                     <h3>Administrador</h3>
-                    <ul>
-                        <li>
-                            <a href="{{route('admin.dashboard')}}">
-                                Painel de controle
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.pedidos')}}">
-                                Todos os pedidos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.pedidos', '?status=nao-pagos')}}">
-                                Pedidos pendentes de pagamento
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.pedidos', '?status=pagos')}}">
-                                Pedidos pagos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.pedidos', '?status=finalizados')}}">
-                                Pedidos finalizados
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.perfil')}}">
-                                Perfil
-                            </a>
-                        </li>
-                    </ul>
+                    <table class="table table-curved tabela-frente">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="{{route('admin.dashboard')}}">
+                                        Painel de controle
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('admin.pedidos')}}">
+                                        Todos os pedidos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('admin.pedidos', '?status=nao-pagos')}}">
+                                        Pedidos pendentes de pagamento
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('admin.pedidos', '?status=pagos')}}">
+                                        Pedidos pagos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('admin.pedidos', '?status=finalizados')}}">
+                                        Pedidos finalizados
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('admin.perfil')}}">
+                                        Perfil
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="col-lg-10">
                     @include('layouts.messages')
