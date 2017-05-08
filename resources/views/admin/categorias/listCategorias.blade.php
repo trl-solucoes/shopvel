@@ -27,7 +27,9 @@
                       <td>{{$cat->nome}}</td>
                       <td>{{is_null($cat->categoria_id) ? "" : $cat->pai['nome']}}</td>
                       <td><a href="editCategoria/{{$cat->id}}" class="btn busca-btn btn-sm">editar</a>
-                          <a href="deleteCategoria/{{$cat->id}}" class="btn btn-danger btn-sm">excluir</a></td>
+                          <a href="" class="btn btn-danger btn-sm">excluir</a>
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+                      </td>
                   </tr>
                   @endforeach
               </tbody>
@@ -36,3 +38,16 @@
 </div>                               
 </div>
 @stop
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+});
+</script>
