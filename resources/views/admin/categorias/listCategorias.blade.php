@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('conteudo')
+
+
+  
 <div class="panel-body">
 @if(Session::has('mensagem_sucesso'))
       {!! 'OK' !!}
@@ -27,7 +30,8 @@
                       <td>{{$cat->nome}}</td>
                       <td>{{is_null($cat->categoria_id) ? "" : $cat->pai['nome']}}</td>
                       <td><a href="editCategoria/{{$cat->id}}" class="btn busca-btn btn-sm">editar</a>
-                          <a href="deleteCategoria/{{$cat->id}}" class="btn btn-danger btn-sm">excluir</a></td>
+                          <button onclick="pegaId({{$cat->id}},'{{$cat->nome}}')" id="abrirModal" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal" >Excluir</button></td>
+
                   </tr>
                   @endforeach
               </tbody>
@@ -35,4 +39,31 @@
   </div>
 </div>                               
 </div>
+
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span></button> 
+                </div>  
+                <div class="modal-body">
+                   <h4 class="alert alert-danger" id="modalLabel">Deseja realmente excluir a Categoria <strong id="nomeExclui"></strong>?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a id="sim" href="" title="Confirmar" class="btn btn-danger ">Sim</a>
+                  <a href="{{ route('admin.listCategoria') }}" title="Cancelar" class="btn btn-success ">Não</a>
+                </div>   
+            </div>
+        </div>
+    </div>
+  <script type="text/javascript">
+    function pegaId(id,nome ){
+      var idexcluir=id;
+      var nomeExcluir=nome;
+      sim.setAttribute("href","deleteCategoria/"+idexcluir);
+      document.getElementById("nomeExclui").innerHTML = nome;
+
+    } 
+</script>
 @stop
