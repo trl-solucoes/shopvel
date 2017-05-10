@@ -16,8 +16,7 @@
 		            <th>id</th>
 		            <th>Nome</th>
 		            <th>Quantidade</th>
-		            <th>Marca</th>
-		            <th>Categoria</th>
+		            <th>Marca / Categoria</th>
 		            <th>Ações</th>
 		        </tr>
 		    </thead>
@@ -27,10 +26,9 @@
 		        <td>{{$prod->id}}</td>
 		        <td>{{$prod->nome}}</td>
 		        <td>{{$prod->qtde_estoque}}</td>
-		        <td>{{$prod->marca['nome']}}</td>
-		        <td>{{$prod->categoria['nome']}}</td>
+		        <td>{{$prod->marca['nome']}} / {{$prod->categoria['nome']}}</td>
 		        
-		        <td>
+		        <td class="col-md-2">
 		            <a href="editProduto/{{$prod->id}}" class="btn busca-btn btn-sm">editar</a>
 		            <button onclick="pegaId({{$prod->id}},'{{$prod->nome}}')" id="abrirModal" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal" >Excluir</button></td>
 		        </td>

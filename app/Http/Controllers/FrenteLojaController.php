@@ -4,6 +4,7 @@ namespace Shoppvel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
+use Shoppvel\Models\Produto;
 
 class FrenteLojaController extends Controller {
 
@@ -14,7 +15,8 @@ class FrenteLojaController extends Controller {
          * as categorias do lado esquerdo em nosso sistema, assim não precisamos
          * chamar em cada acao a lista de categorias para popular aquele menu
          */
-        $models['produtos'] = \Shoppvel\Models\Produto::destacado()->get();
+        $models['produtos'] = Produto::where('destacado', 'LIKE', '1')->paginate(20);
+        //$models['produtos'] = \Shoppvel\Models\Produto::Paginate(20);
         return view('frente.entrada', $models);
     }
 

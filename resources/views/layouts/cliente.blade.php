@@ -42,38 +42,52 @@
             <div class="row normal">
                 <div class="col-lg-2">
                     <h3>Cliente</h3>
-                    <ul>
-                        <li>
-                            <a href="{{route('cliente.dashboard')}}">
-                                Painel de controle
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('cliente.pedidos')}}">
-                                Todos os pedidos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('cliente.pedidos', '?status=nao-pagos')}}">
-                                Pedidos pendentes de pagamento
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('cliente.pedidos', '?status=pagos')}}">
-                                Pedidos pagos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('cliente.pedidos', '?status=finalizados')}}">
-                                Pedidos finalizados
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('cliente.perfil')}}">
-                                Perfil
-                            </a>
-                        </li>
-                    </ul>
+                    <table class="table table-curved tabela-frente">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="{{route('cliente.dashboard')}}">
+                                        Painel de controle
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('cliente.pedidos')}}">
+                                        Todos os pedidos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('cliente.pedidos', '?status=nao-pagos')}}">
+                                        Pedidos pendentes de pagamento
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('cliente.pedidos', '?status=pagos')}}">
+                                        Pedidos pagos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('cliente.pedidos', '?status=finalizados')}}">
+                                        Pedidos finalizados
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{route('cliente.perfil')}}">
+                                        Perfil
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="col-lg-10">
                     @include('layouts.messages')

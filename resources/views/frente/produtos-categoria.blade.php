@@ -7,14 +7,14 @@
     </h2>
 </div>
 @foreach ($categoria->produtos as $produto)
-<div class="col-sm-6 col-md-4">
+<div class="col-md-3" style="height:500px;">
     <div class="thumbnail">
-        <img src="{{route('imagem.file',$produto->imagem_nome)}}" >
+        <img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}" style="height: 200px;width:200px;">
         <div class="caption">
-            <h3>{{$produto->nome}}</h3>
+            <h3 class="teste">{{$produto->nome}}</h3>
             <h4 class="text-muted">{{$produto->marca['nome']}}</h4>
-            <p>{{str_limit($produto->descricao,100)}}</p>
-            <p><a href="{{route('produto.detalhes', $produto->id)}}" class="btn btn-primary" role="button">Detalhes</a></p>
+            <p>{{str_limit($produto->descricao,70)}}</p>
+            <p><a href="{{route('produto.detalhes', $produto->id)}}" class="btn btn-primary btn-detail" role="button">Detalhes</a></p>
         </div>
     </div>
 </div>

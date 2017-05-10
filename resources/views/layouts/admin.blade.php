@@ -49,48 +49,48 @@
             
             <!-- Example row of columns -->
             <div class="row normal">
-                <div class="col-lg-2">
-                    <h3>Administrador</h3>
-                    <table class="table table-curved tabela-frente">
+                <div class="col-md-2 tabela-frente">
+                    <h3>Admin</h3>
+                    <table class="table table-curved">
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="{{route('admin.dashboard')}}">
+                                    <a href="{{route('admin.dashboard')}}" style="text-decoration:none;">
                                         Painel de controle
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="{{route('admin.pedidos')}}">
+                                    <a href="{{route('admin.pedidos')}}" style="text-decoration:none;">
                                         Todos os pedidos
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="{{route('admin.pedidos', '?status=nao-pagos')}}">
+                                    <a href="{{route('admin.pedidos', '?status=nao-pagos')}}" style="text-decoration:none;">
                                         Pedidos pendentes de pagamento
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="{{route('admin.pedidos', '?status=pagos')}}">
+                                    <a href="{{route('admin.pedidos', '?status=pagos')}}" style="text-decoration:none;">
                                         Pedidos pagos
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="{{route('admin.pedidos', '?status=finalizados')}}">
+                                    <a href="{{route('admin.pedidos', '?status=finalizados')}}" style="text-decoration:none;">
                                         Pedidos finalizados
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="{{route('admin.perfil')}}">
+                                    <a href="{{route('admin.perfil')}}" style="text-decoration:none;">
                                         Perfil
                                     </a>
                                 </td>

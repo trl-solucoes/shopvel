@@ -37,16 +37,6 @@
 					</div>
 					<div  class="form-group col-md-12">
     					<div class="col-md-5">
-							{!! Form::label('avaliacao_qtde', 'Avaliação Quantidade', ['class'=>'col-sm-4 form-label']) !!}
-							{!! Form::input('number', 'avaliacao_qtde', null, ['class'=>'form-control', '', 'placeholder'=>'Avaliação Quantidade', 'required'=>'required']) !!}
-						</div>
-						<div class=" col-md-6 col-md-offset-1">
-							{!! Form::label('avaliacao_total', 'Avaliação total', ['class'=>'col-sm-2 form-label']) !!}
-							{!! Form::input('number', 'avaliacao_total', null, ['class'=>'form-control', '', 'placeholder'=>'Avaliação total', 'required'=>'required']) !!}
-						</div>
-					</div>
-					<div  class="form-group col-md-12">
-    					<div class="col-md-5">
 							{!! Form::label('preco_venda', 'Preço Venda', ['class'=>'col-sm-2 form-label']) !!}
 							{!! Form::input('text', 'preco_venda', null, ['class'=>'form-control', '', 'placeholder'=>'Preço de Venda', 'required'=>'required']) !!}
 						</div>

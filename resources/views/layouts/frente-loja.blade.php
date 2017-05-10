@@ -41,15 +41,15 @@
             
             <!-- Example row of columns -->
             <div class="row normal">
-                <div class="col-lg-2">
+                <div class="col-lg-2 tabela-frente">
                     <h3>Categorias</h3>
-                    <table class="table table-curved tabela-frente">
+                    <table class="table">
                         <tbody>
                             @foreach ($listcategorias as $cat)
                             @if (is_null($cat->categoria_id))    
                                 <tr>
                                     <td class="text-center">
-                                        <a href="{{route('categoria.listar', $cat->id)}}">{{$cat->nome}}</a>
+                                        <a href="{{route('categoria.listar', $cat->id)}}" style="text-decoration:none;">{{$cat->nome}}</a>
                                     </td>
                                 </tr>
                             @endif

@@ -4,6 +4,7 @@ body{
 
 .normal{
 	background-color: white;
+	border-radius: 20px;
 }
 
 .cabecalho{
@@ -25,11 +26,12 @@ body{
 }
 
 .tabela-frente{
-	margin-top: 10px;
+	margin: 60px 0px 0px 0px;
 	text-transform: uppercase;
 	text-decoration: none;
-	border: 2px solid red;
+	border: 2px solid #ffcc00;
 	font-weight: bold;
+	border-radius: 10px;
 }
 
 .tabela-frente > tbody > tr > td > a{
@@ -64,4 +66,11 @@ body{
 }
 .input-qtd{
 	border:2px solid red;
+}
+
+.teste{
+	white-space: nowrap; 
+    width: 7em; 
+    overflow: hidden;
+    text-overflow: clip;
 }
