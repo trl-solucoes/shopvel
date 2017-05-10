@@ -17,7 +17,7 @@
                 
                 {{ Form::open (['route' => ['carrinho.adicionar', $produto->id]]) }}
                     {!! Form::label('qtd', 'Qtd.', ['class'=>'input-group']) !!}
-                    {{ Form::text('qtde', 1, ['class'=>'col-sm-2 text-center']) }}
+                    {{ Form::number('qtde', 1, ['class'=>'col-sm-2 text-center','min'=>'1','max'=>$produto->qtde_estoque]) }}
                     {{ Form::submit('Adicionar ao carrinho', ['class'=>'btn btn-primary btn-sm col-sm-5 btn-detail col-sm-offset-1']) }}
                 {{ Form::close() }}
             </div>
