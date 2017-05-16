@@ -85,6 +85,11 @@ Route::get('carrinho/esvaziar', [
     'uses' => 'CarrinhoController@getEsvaziar'
 ]);
 
+Route::any('carrinho/remover-item/{id}', [
+    'as' => 'carrinho.remover-item',
+    'uses' => 'CarrinhoController@remover_item'
+]);
+
 Route::group(['middleware' => ['auth']], function () {
     Route::get('carrinho/finalizar-compra', [
         'as' => 'carrinho.finalizar-compra',

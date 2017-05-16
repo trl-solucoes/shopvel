@@ -42,7 +42,10 @@
                 {{number_format($item->produto->preco_venda, 2, ',', '.')}}
             </td>
             <td class="text-center">
-                <button  onclick="deleteRow(this)" class="btn btn-danger ">X</button>
+                <a href="{{route('carrinho.remover-item', $item->produto->id)}}"
+                        class="btn btn-danger btn-xs pull-right">
+                    Remover Item
+                    </a>
             </td>
             <td class="text-right">
                 {{number_format($item->produto->preco_venda * $item->qtde, 2, ',', '.')}}
@@ -83,16 +86,3 @@
 </table>
 
 @stop
-<script type="text/javascript">
-     function deleteRow(row){
-      var d = row.parentNode.parentNode.rowIndex;
-      var retirar=row.parentNode.nextElementSibling.firstChild.nodeValue;
-      var total=document.getElementById('total').firstChild.nodeValue;
-      var sub=parseInt(total)-parseInt(retirar);
-      var num_prod=document.getElementById('num_prod').firstChild.nodeValue;
-      document.getElementById('num_prod').innerHTML=parseInt(num_prod)-1+' produtos no carrinho';
-      document.getElementById('total').innerHTML=sub;
-      document.getElementById('dsTable').deleteRow(d);
-      document.getElementById('esvaziar').style.display = 'none';
-   }
-</script>

@@ -47,6 +47,20 @@ class Carrinho {
         return true;
     }
 
+    public function deleteItem($id){
+        $itens_carrinho = $this->getItens();
+        foreach ($itens_carrinho as $i => $item) {
+            if($item->produto->id == $id){
+                unset($itens_carrinho[$i]);
+            } 
+        }
+
+        $this->esvaziar();
+        session([self::NOME_CARRINHO => $itens_carrinho]);
+        session()->save();
+        
+    }
+
     public function getTotal() {
         $total = 0;
         foreach ($this->itens as $item) {

@@ -105,6 +105,12 @@ class CarrinhoController extends Controller {
         return $models;
     }
 
+    function remover_item($id){
+        $this->carrinho->deleteItem($id);
+        return redirect()
+            ->route('carrinho.listar');
+    }
+
     public function getFinalizarCompra() {
         if ($this->carrinho->getItens()->count() == 0) {
             return back()->withErrors('Nenhum item no carrinho para finalizar compra!');
