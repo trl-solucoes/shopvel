@@ -13,11 +13,13 @@
         <div class="caption">
             <h3 class="teste">{{$produto->nome}}</h3>
             <h4 class="text-muted">{{$produto->marca['nome']}}</h4>
-            <p>{{str_limit($produto->descricao,70)}}</p>
+            <p>{{str_limit($produto->descricao,80)}}</p>
             <p><a href="{{route('produto.detalhes', $produto->id)}}" class="btn btn-primary btn-detail" role="button">Detalhes</a></p>
         </div>
     </div>
 </div>
 @endforeach
-{{$produtos->links()}}
+<div class="pull-right">
+    {{$produtos->links()}}
+</div>
 @stop

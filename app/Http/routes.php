@@ -45,6 +45,10 @@ Route::get('sobre', [
     'as' => 'sobre',
     'uses' => 'FrenteLojaController@getSobre'
 ]);
+Route::get('oferta/listar',[
+  'as'=> 'oferta.listar',
+  'uses' => 'FrenteLojaController@oferta'
+]);
 Route::get('pagseguro/checkout', [
     'as' => 'pagseguro.checkout',
     'uses' => 'PedidoController@postCheckout'

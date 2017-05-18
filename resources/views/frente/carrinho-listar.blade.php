@@ -1,8 +1,11 @@
 @extends('layouts.frente-loja')
 
 @section('conteudo')
-<script src="{{asset('js/jquery-3.2.0.min.js')}}"></script>
-<h2>Carrinho de compras</h2>
+<div class="panel-body"></br>
+@if(Session::has('mensagem_sucesso'))
+      {!! 'OK' !!}
+      @endif
+<h2 class="page-header text-info">Carrinho de compras</h2>
 <div class='row'>
     <div id='num_prod' class="text-muted col-sm-8">
         {{$itens->count()}} produtos no carrinho
@@ -84,5 +87,5 @@
         </tr>
     </tfoot>
 </table>
-
+</div>
 @stop

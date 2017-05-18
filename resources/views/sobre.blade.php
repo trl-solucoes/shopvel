@@ -1,6 +1,12 @@
 @extends('layouts.frente-loja')
-
 @section('conteudo')
+<script>
+    $(document).ready(function(){
+        $("#drop_marca").hide();
+        $("#drop_categoria").hide();
+        $("#oferta").hide();
+    });
+</script>
 <div class='col-sm-12'>
     <h2 class="page-header text-muted">
         Sobre o projeto SHOPPVEL

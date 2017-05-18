@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
 use Shoppvel\Models\Carrinho;
 use Shoppvel\Models\Produto;
+use Shoppvel\Models\Marca;
 use Illuminate\Support\Facades\Auth;
 
 class CarrinhoController extends Controller {
@@ -33,6 +34,7 @@ class CarrinhoController extends Controller {
 
     function getListar() {
         $models = $this->getCarrinhoModels();
+        $models['listmarcas'] = Marca::all();
         return view('frente.carrinho-listar', $models);
     }
 
