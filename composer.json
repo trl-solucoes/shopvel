@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "5.2.*",
         "michael/laravelpagseguro": "dev-master",
-        "kennedytedesco/validation": "~3.0"
+        "kennedytedesco/validation": "~3.0",
+       "pagseguro/php": "@stable"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

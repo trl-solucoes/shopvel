@@ -7,8 +7,8 @@ return [
      * Coloque abaixo as informações do seu cadastro no PagSeguro
      */
     'credentials' => [//INFORME AS CREDENCIAIS PADRÕES DE SUA LOJA, MAS PORDERÁ SER ALTERADA EM RUNTIME
-        'email' => env('PAGSEG_EMAIL', null),
-        'token' => env('PAGSEG_TOKEN', null),
+        'email' => env('PAGSEG_EMAIL', 'c21590714182526683535@sandbox.pagseguro.com.br'),
+        'token' => env('PAGSEG_TOKEN', 'w7gxTe2B6ANDLKwD'),
     ],
     /*
      * Informe abaixo o nome / url das rotas de aplicação para notificações
@@ -46,7 +46,7 @@ return [
         'adapter' => [
             'type' => 'curl',
             'options' => [
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_0,
+                //CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_0,
             //CURLOPT_PROXY => 'http://user:pass@host:port', // PROXY OPTION
             ]
         ],
