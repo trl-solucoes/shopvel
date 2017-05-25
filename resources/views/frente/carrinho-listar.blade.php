@@ -4,7 +4,7 @@
 <div class="panel-body"></br>
 @if(Session::has('mensagem_sucesso'))
       {!! 'OK' !!}
-      @endif
+@endif</br></br>
 <h2 class="page-header text-info">Carrinho de compras</h2>
 <div class='row'>
     <div id='num_prod' class="text-muted col-sm-8">

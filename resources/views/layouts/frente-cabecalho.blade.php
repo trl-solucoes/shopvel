@@ -2,8 +2,14 @@
     <a href="{{url('/')}}"></a>
     <nav>
         <ul class="nav nav-justified cabecalho">
-            <li><img src="http://localhost/shopvel/public/image/logo_shopvel.png" alt="logo shoppvel" style="height:70px;width:200px;"></li>
-            <li class="active"><a href="{{url('/')}}">Home</a></li>
+            <li>
+            <span>
+                <a href="{{url('/')}}">
+                    <img src="http://localhost/shopvel/public/image/logo_shopvel.png" alt="logo shoppvel" style="height:70px;width:200px;">
+                </a>
+            </span>
+            </li>
+            <li><a href="{{url('/')}}">Home</a></li>
             <li><a href="{{route('sobre')}}">Sobre</a></li>            
 
             @if (Auth::guest())
@@ -23,7 +29,7 @@
     </nav>
     {!! Form::open(array('route' => 'produto.buscar', 'class'=>'navbar-form navbar-right')) !!} 
     <div class="form-group busca">
-        {!! Form::input('text', 'termo-pesquisa', null,['placeholder'=>'Pesquisar',
+        {!! Form::input('text', 'termo-pesquisa', null,['placeholder'=>'O que vc procura?',
         'class'=>'form-control']) !!}
     </div>
     <button type="submit" class="btn btn-primary busca-btn">
@@ -45,13 +51,5 @@
                 <li><a href="{{route('categoria.listar', $cat->id)}}" style="text-decoration:none;">{{$cat->nome}}</a></li>
             @endforeach
         </ul>
-    </div>
-    <div class="dropdown col-md-offset-5" id="drop_marca">
-       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Compre por Marca
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">       
-
-        </ul>
-      </div>
-        
+    </div>        
 </div>

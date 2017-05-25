@@ -2,11 +2,17 @@
 @section('conteudo')
 
 @if(null != $produtos->total())
-    <div class='col-sm-12'>
+    <div class='col-sm-10'>
         <div class="page-header text-muted">
             {{$produtos->total()}} encontrado(s) com o termo de busca 
             <span class="label label-info">{{$termo}}</span>
         </div>
+        <div class="row">
+        <a href="" class="btn btn-primary">Menor preço</a>
+        <a href="" class="btn btn-primary">Maior preço</a>
+        <a href="" class="btn btn-primary">De A-Z</a>
+        <a href="" class="btn btn-primary">De Z-A</a>
+    </div>
     </div>
     <table class="table table-striped">
         <thead>
