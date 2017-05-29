@@ -52,11 +52,11 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'new_name' => 'required|max:255',
-            'new_email' => 'required|email|max:255|unique:users',
+            'nome' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
             'cpf' => 'required|cpf',
             'endereco' => 'required',
-            'new_password' => 'required|confirmed|min:6',
+            'senha' => 'required|confirmed|min:6',
         ]);
     }
 
@@ -75,11 +75,11 @@ class AuthController extends Controller
         $cpf = str_replace('-', '', $cpf);
         
         return User::create([
-            'name' => $data['new_name'],
-            'email' => $data['new_email'],
+            'name' => $data['nome'],
+            'email' => $data['email'],
             'cpf' => $cpf,
             'endereco' => $data['endereco'],
-            'password' => bcrypt($data['new_password']),
+            'password' => bcrypt($data['senha']),
         ]);
     }
     
