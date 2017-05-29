@@ -74,3 +74,11 @@ body{
     overflow: hidden;
     text-overflow: clip;
 }
+
+.frete{
+	margin-top: 20px;
+}
+
+.aval{
+	margin-top: 60px;
+}

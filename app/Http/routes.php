@@ -41,6 +41,11 @@ Route::get('admin/sobre', [
     'uses' => 'AdminController@getSobre'
 ]);
 
+Route::any('calcfrete', [
+  'as' => 'frete.calcular',
+  'uses' => 'CarrinhoController@calcFrete'
+]);
+
 Route::get('sobre', [
     'as' => 'sobre',
     'uses' => 'FrenteLojaController@getSobre'
@@ -99,6 +104,11 @@ Route::group(['middleware' => ['auth']], function () {
         'as' => 'carrinho.finalizar-compra',
         'uses' => 'CarrinhoController@getFinalizarCompra'
     ]);
+Route::post('carrinho/avaliar', [
+    'as' => 'carrinho.avaliar',
+    'uses' => 'CarrinhoController@Avaliar'
+
+]);
 
     Route::get('cliente/dashboard', [
         'as' => 'cliente.dashboard',
@@ -119,8 +129,8 @@ Route::group(['middleware' => ['auth']], function () {
     ]);
 
     Route::get('admin', [
-        'as' => 'admin',
-        'uses' => 'AdminController@getDashboard'
+      'as' => 'admin',
+      'uses' => 'AdminController@getDashboard'
     ]);
     Route::get('admin/dashboard', [
         'as' => 'admin.dashboard',

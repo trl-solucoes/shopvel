@@ -2,13 +2,13 @@
 
 return [
     /* DEFINE SE SERÁ UTILIZADO O AMBIENTE DE TESTES */
-    'use-sandbox' => env('PAGSEG_SANDBOX', false),
+    'use-sandbox' => env('PAGSEG_SANDBOX', true),
     /*
      * Coloque abaixo as informações do seu cadastro no PagSeguro
      */
     'credentials' => [//INFORME AS CREDENCIAIS PADRÕES DE SUA LOJA, MAS PORDERÁ SER ALTERADA EM RUNTIME
-        'email' => env('PAGSEG_EMAIL', 'c21590714182526683535@sandbox.pagseguro.com.br'),
-        'token' => env('PAGSEG_TOKEN', 'w7gxTe2B6ANDLKwD'),
+        'email' => env('PAGSEG_EMAIL', 'trlsolucoes@gmail.com'),
+        'token' => env('PAGSEG_TOKEN', '8AC8D5F1505E49F995FAA8CCE357FAB3'),
     ],
     /*
      * Informe abaixo o nome / url das rotas de aplicação para notificações

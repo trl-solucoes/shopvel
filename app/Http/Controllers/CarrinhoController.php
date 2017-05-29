@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
 use Shoppvel\Models\Carrinho;
 use Shoppvel\Models\Produto;
-use Shoppvel\Models\Marca;
+//use Shoppvel\Controllers\ClienteController;
 use Illuminate\Support\Facades\Auth;
+use laravel\pagseguro\Config\Config;
+use laravel\pagseguro\Credentials\Credentials;
+use laravel\pagseguro\Checkout\Facade\CheckoutFacade;
 
 class CarrinhoController extends Controller {
 
@@ -19,6 +22,7 @@ class CarrinhoController extends Controller {
     }
 
     function anyAdicionar(Request $request, $id) {
+        $est = Produto::find($id)->qtde_estoque;
         if ($id == null) {
             return \Redirect::back()
                             ->withErrors('Nenhum código de produto informado para adicionar ao carrinho.');
@@ -34,7 +38,7 @@ class CarrinhoController extends Controller {
 
     function getListar() {
         $models = $this->getCarrinhoModels();
-        $models['listmarcas'] = Marca::all();
+        //$models['listmarcas'] = Marca::all();
         return view('frente.carrinho-listar', $models);
     }
 
@@ -123,4 +127,43 @@ class CarrinhoController extends Controller {
         return view('frente.finalizar-compra', $models);
     }
 
+    function calcFrete(Request $request){
+
+            $cep = $request->get('cep');
+            $cep_origem = "84072020";
+            $peso = 2.0;
+            $valor = 200;
+            $tipo_frete = 41106;
+            $altura = 6;
+            $largura = 20;
+            $comprimento = 20;
+
+            $url = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?";
+            $url .="nCdEmpresa=";
+            $url .="&sDsSenha=";
+            $url .="&sCepOrigem=84072020";
+            $url .="&sCepDestino=" . $cep;
+            $url .="&nVlPeso=" . $peso;
+            $url .="&nVlLargura=" . $largura;
+            $url .="&nVlAltura=" . $altura;
+            $url .="&nCdFormato=1";
+            $url .="&nVlComprimento=" . $comprimento;
+            $url .="&sCdMaoPropria=n";
+            $url .="&nVlValorDeclarado=" . $valor;
+            $url .="&sCdAvisoRecebimento=n";
+            $url .="&nCdServico=" . $tipo_frete;
+            $url .="&nVlDiamentro=0";
+            $url .="&StrRetorno=xml";
+            
+            $xml = simplexml_load_file($url);
+
+            $models = $this->getCarrinhoModels();
+            $models['valorfrete'] = $xml->cServico->Valor;
+            $models['prazo'] = $xml->cServico->PrazoEntrega;
+            //dd($xml->cServico);
+
+            return view('frente.carrinho-listar', $models);
+            //return redirect()->route('carrinho.listar')->with($models);
+
+    }
 }

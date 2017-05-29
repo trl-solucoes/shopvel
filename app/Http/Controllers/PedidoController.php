@@ -10,6 +10,9 @@ use Shoppvel\Models\Produto;
 use Shoppvel\Models\Venda;
 use Shoppvel\Models\VendaItem ;
 use Illuminate\Support\Facades\Auth;
+use laravel\pagseguro\Config\Config;
+use laravel\pagseguro\Credentials\Credentials;
+use laravel\pagseguro\Checkout\Facade\CheckoutFacade;
 
 class PedidoController extends Controller {
 

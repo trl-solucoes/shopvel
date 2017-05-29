@@ -5,14 +5,26 @@
 @if(Session::has('mensagem_sucesso'))
       {!! 'OK' !!}
 @endif</br></br>
-<h2 class="page-header text-info">Carrinho de compras</h2>
 <div class='row'>
     <div id='num_prod' class="text-muted col-sm-8">
-        {{$itens->count()}} produtos no carrinho
+        <h2 class="page-header text-info">Carrinho de compras</h2> {{$itens->count()}} produtos no carrinho
     </div>
     <a id="esvaziar" href="{{route('carrinho.esvaziar')}}" class="btn btn-warning col-sm-2 pull-right">
         Esvaziar carrinho
     </a>
+    <div class="col-md-5 row frete pull-right">
+    @if(isset($valorfrete))
+        <p class="alert alert-success col-md-5">Entrega: {{$prazo}} dias,</br>Valor: R$ {{$valorfrete}}</p>
+    @else
+            <form class="form-inline" action="{{route('frete.calcular')}}">
+              <div class="form-group">
+                <label for="frete">Calcular Frete: </label>
+                <input type="number" class="form-control" id="cep" name="cep" placeholder="Insira o seu CEP">
+              </div>
+              <button type="submit" class="btn btn-primary">Calcular</button>
+            </form>
+        </div>
+    @endif
 </div>
 <hr/>
 <table id="dsTable" class="table table-striped">
