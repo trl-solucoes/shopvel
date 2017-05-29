@@ -7,17 +7,20 @@
     </div>
 </div>
 @foreach($produtos as $produto)
+<a href="{{route('produto.detalhes', $produto->id)}}">
 <div class="col-md-3" style="height:500px;">
     <div class="thumbnail">
-        <img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}" style="height: 200px;width:200px;">
+        <img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}" style="height: 200px;width:250px;">
         <div class="caption">
             <h3 class="teste">{{$produto->nome}}</h3>
             <h4 class="text-muted">{{$produto->marca['nome']}}</h4>
-            <p>{{str_limit($produto->descricao,70)}}</p>
-            <p><a href="{{route('produto.detalhes', $produto->id)}}" class="btn btn-primary btn-detail" role="button">Detalhes</a></p>
+            <p>{{str_limit($produto->descricao,100)}}</p>
         </div>
     </div>
 </div>
+</a>
 @endforeach
-{{$produtos->links()}}
+<div class="pull-right">
+    {{$produtos->links()}}
+</div>
 @stop

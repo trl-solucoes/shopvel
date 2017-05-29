@@ -32,6 +32,7 @@
             <div class="alert alert-danger pull-right">
                 Erro ao conectar com PagSeguro, por favor tente novamente em alguns minutos!
             </div>
+            <a href="" class="btn btn-primary pull-right">Armazene seu Pedido</a>
             @endif
             @endif
         </td>

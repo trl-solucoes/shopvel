@@ -5,6 +5,7 @@ namespace Shoppvel\Http\Controllers;
 use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
 use Shoppvel\Models\Categoria;
+use Shoppvel\Models\Marca;
 use Shoppvel\Http\Requests\CategoriaRequest;
 use Shoppvel\Http\Requests\CategoriaUpdateRequest;
 
@@ -13,11 +14,13 @@ class CategoriaController extends Controller {
     function getCategoria($id = null) {
         if ($id == null) {
             $models['listcategorias'] = Categoria::all();
+            //$models['listmarcas'] = Marca::all();
             return view('frente.categorias', $models);
         }
         
         // se um id foi passado
         $models['categoria'] = \Shoppvel\Models\Categoria::find($id);
+        //$models['listmarcas'] = Marca::all();
         return view('frente.produtos-categoria', $models);
     }
     

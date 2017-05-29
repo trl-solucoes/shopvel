@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4  col-md-offset-1">
     <div class="panel panel-warning">
         <div class="panel-heading">Não tem registro em nossa loja?</div>
         <div class="panel-body">

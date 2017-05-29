@@ -16,6 +16,9 @@
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="{{asset('bootstrap/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <!-- Custom styles for this template -->
         <link href="justified-nav.css" rel="stylesheet">
@@ -41,27 +44,10 @@
             
             <!-- Example row of columns -->
             <div class="row normal">
-                <div class="col-lg-2 tabela-frente">
-                    <h3>Categorias</h3>
-                    <table class="table">
-                        <tbody>
-                            @foreach ($listcategorias as $cat)
-                            @if (is_null($cat->categoria_id))    
-                                <tr>
-                                    <td class="text-center">
-                                        <a href="{{route('categoria.listar', $cat->id)}}" style="text-decoration:none;">{{$cat->nome}}</a>
-                                    </td>
-                                </tr>
-                            @endif
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
                 <div class="col-lg-10">
                     @include('layouts.messages')
-
-                    @yield('conteudo')
                 </div>
+                @yield('conteudo')
             </div>
 
             <!-- Site footer -->
