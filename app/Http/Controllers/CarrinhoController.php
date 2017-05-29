@@ -113,8 +113,7 @@ class CarrinhoController extends Controller {
 
     function remover_item($id){
         $this->carrinho->deleteItem($id);
-        return redirect()
-            ->route('carrinho.listar');
+        return redirect('/carrinho');
     }
 
     public function getFinalizarCompra() {

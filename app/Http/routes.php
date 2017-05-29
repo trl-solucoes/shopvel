@@ -123,9 +123,9 @@ Route::post('carrinho/avaliar', [
         'as' => 'cliente.perfil',
         'uses' => 'ClienteController@getPerfil'
     ]);
-    Route::any('cliente/avaliar/{id}', [
+    Route::post('cliente/avaliar', [
         'as' => 'cliente.avaliar',
-        'uses' => 'ClienteController@postAvaliar'
+        'uses' => 'ProdutoController@avaliarProduto'
     ]);
 
     Route::get('admin', [

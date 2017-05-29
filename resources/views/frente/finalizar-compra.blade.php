@@ -48,7 +48,7 @@
                 class="btn btn-danger btn-xs">Remover item </a>
             </td>
             <td class="text-center">
-                <button type="button" data-id='{{ $item->produto->id }}' class='btn btn-success btn-sm btn-avalie'>Avalie</button>
+                <button type="button" onclick="avaliar({{$item->produto->id}})" class="btn btn-success btn-sm">Avalie</button>
                
                 <!-- avaliar por botão Avalie ou apos clicar no botão finalizar compra -->
             </td>
@@ -77,4 +77,44 @@
         </tr>
 </table>
 </div>
+<script>
+    function avaliar(id) {
+        bootbox.confirm({
+            title: 'Avalie nosso produto!!!',
+            message: '<form class="form-inline" id="form-avaliar"><input type="hidden" name="id" value="'+id+'"><label class="radio-inline"><input type="radio" value="1" name="optradio">1</label><label class="radio-inline"><input type="radio" value="2" name="optradio">2</label><label class="radio-inline"><input type="radio" value="3" name="optradio">3</label><label class="radio-inline"><input type="radio" value="4" name="optradio">4</label><label class="radio-inline"><input type="radio" value="5" name="optradio">5</label><label class="radio-inline"><input type="radio" value="6" name="optradio">6</label><label class="radio-inline"><input type="radio" value="7" name="optradio">7</label><label class="radio-inline"><input type="radio" value="8" name="optradio">8</label><label class="radio-inline"><input type="radio" value="9" name="optradio">9</label><label class="radio-inline"><input type="radio" value="10" name="optradio">10</label></form>',
+            className: 'bb-alternate-modal',
+            buttons: {
+                'cancel': {
+                    label: 'Cancelar',
+                    className: 'btn-danger pull-left'
+                },
+                'confirm': {
+                    label: 'Pronto',
+                    className: 'btn-success pull-right'
+                }
+            },
+            callback: function(result) {
+                if (result) {
+                    var val = $("#form-avaliar").serialize();
+                        $.ajax({
+                            type: 'POST',
+                            url: '{{route("cliente.avaliar")}}',
+                            data: val,
+                            success: function(retorno){
+                                console.log(retorno);
+                                bootbox.alert({
+                                    message: "Avaliado com Sucesso!!!",
+                                    className: 'small'
+                                });
+                            },
+                            error: function(retorno){
+                                console.log("Erro: ",retorno);
+                            }
+                        })
+                    //location.href='cliente.avaliar/'+id;
+                }
+            }
+        });
+    }
+</script>
 @stop

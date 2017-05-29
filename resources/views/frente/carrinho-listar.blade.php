@@ -14,7 +14,7 @@
     </a>
     <div class="col-md-5 row frete pull-right">
     @if(isset($valorfrete))
-        <p class="alert alert-success col-md-5">Entrega: {{$prazo}} dias,</br>Valor: R$ {{$valorfrete}}</p>
+        <p class="alert alert-success col-md-5">Entrega: {{$prazo}} dias,</br>Valor: R$ {{$valorfrete}} <a href="{{route('carrinho.listar')}}" class="btn btn-primary col-md-offset-1 glyphicon glyphicon-refresh"></a></p>
     @else
             <form class="form-inline" action="{{route('frete.calcular')}}">
               <div class="form-group">
@@ -50,15 +50,15 @@
                     {{$item->produto->nome}}
                 </a>
             </td>
-            <td class="text-right">
+            <td class="text-center">
                 {{$item->qtde}}
             </td>
-            <td class="text-right">
+            <td class="text-center">
                 {{number_format($item->produto->preco_venda, 2, ',', '.')}}
             </td>
             <td class="text-center">
                 <a href="{{route('carrinho.remover-item', $item->produto->id)}}"
-                        class="btn btn-danger btn-xs pull-right">
+                        class="btn btn-danger btn-xs">
                     Remover Item
                     </a>
             </td>

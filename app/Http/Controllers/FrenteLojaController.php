@@ -32,7 +32,7 @@ class FrenteLojaController extends Controller {
     function oferta(){
         $models['produtos'] = Produto::where([
     ['destacado', '=', '1'],
-    ['id', '<=', '20'],
+    ['id', '<=', '40'],
 ])->paginate(20);
         return view('frente.entrada',$models);
     }

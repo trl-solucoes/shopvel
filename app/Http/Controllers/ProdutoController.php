@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
 use Shoppvel\Models\Produto;
 use Shoppvel\Models\Marca;
+use Shoppvel\Models\Categoria;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpFoundation\Response;
+use DB;
 
 class ProdutoController extends Controller {
 
@@ -34,7 +36,8 @@ class ProdutoController extends Controller {
     }
 
     function listProduto(){
-        $produtos['listprodutos'] = Produto::all();
+        $models['listprodutos'] = Produto::all();
+        $models['listcategorias'] = Categoria::all();
         return view('admin.produtos.listProduto', $produtos);
     }
 
@@ -94,6 +97,22 @@ class ProdutoController extends Controller {
            ->withInput();
        }
 
+   }
+
+   public function avaliarProduto(Request $request) {
+        $produto = Produto::findOrFail($request->get('id'));
+       
+        if($produto->avaliacao_qtde = Produto::find('avaliacao_qtde') == ''){
+            $produto->avaliacao_qtde += $request->get('optradio');
+            $produto->avaliacao_total++;
+            $produto->avaliacao_qtde--;
+            $produto->save();
+        }else{
+            $produto->avaliacao_qtde += $request->get('optradio');
+            $produto->avaliacao_qtde--;
+            $produto->avaliacao_total++;
+            $produto->update();
+        }
    }
 
 }
