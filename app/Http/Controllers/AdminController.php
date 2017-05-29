@@ -7,7 +7,8 @@ use Shoppvel\Http\Requests;
 use Shoppvel\Models\Carrinho;
 use Shoppvel\Models\Produto;
 use Shoppvel\Models\Venda;
-use Shoppvel\Models\VendaItem ;
+use Shoppvel\Models\VendaItem;
+use Shoppvel\User;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
@@ -82,5 +83,16 @@ class AdminController extends Controller {
     }
     function getSobre() {
         return view('admin.sobre');
+    }
+
+    function adminUsers(){
+        $models['usuarios']=User::all();
+        //dd($models);
+        return view('admin.adminuser.list-users',$models);
+    }
+    function removeUser($id){
+        $models['user']=User::find($id)->delete();
+        \Session::flash('mensagens-sucesso', 'Usuário excluído com Sucesso');
+        return redirect()->route('admin.adminUsers');
     }
 }

@@ -225,6 +225,15 @@ Route::post('carrinho/avaliar', [
      Route::patch('admin/updtMarca/{id}', [
         'as'=>'admin.updtMarca',
         'uses'=>'MarcaController@updtMarca']);
+     
+     Route::get('admin/adminUsers',[
+        'as'=>'admin.adminUsers',
+        'uses'=>'AdminController@adminUsers'
+      ]);
+     Route::get('admin/removeUser/{id}',[
+        'as'=>'admin.removeUser',
+        'uses'=>'AdminController@removeUser'
+      ]);
 });
 
 
