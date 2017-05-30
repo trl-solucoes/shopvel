@@ -34,12 +34,12 @@
 
     <body>
 
-        <div class="container">
+        <div class="container col-md-12"  style="padding-top:180px;">
 
             @include('layouts.frente-cabecalho')
             
             <!-- Example row of columns -->
-            <div class="row normal">
+            <div class="row normal col-md-10 col-md-offset-1">
                 <div class="col-lg-2">
                     <h3>Cliente</h3>
                     <table class="table table-curved tabela-frente">
@@ -96,10 +96,7 @@
                 </div>
             </div>
 
-            <!-- Site footer -->
-            <footer class="footer">
-                <p>&copy; 2016 Ademir Mazer Junior. @nunomazer - ademir.mazer.jr@gmail.com</p>
-            </footer>
+            
 
         </div> <!-- /container -->
 

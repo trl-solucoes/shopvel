@@ -36,28 +36,24 @@
         <![endif]-->
     </head>
 
-    <body>
+    <body >
 
-        <div class="container">
+        <div class="container col-md-12"  style="padding-top:180px;">
 
             @include('layouts.frente-cabecalho')
             
             <!-- Example row of columns -->
-            <div class="row normal">
+            <div class="row normal col-md-10 col-md-offset-1" >
                 <div class="col-lg-10">
                     @include('layouts.messages')
                 </div>
                 @yield('conteudo')
             </div>
 
-            <!-- Site footer -->
-            <footer class="footer">
-                <p>&copy; 2016 Ademir Mazer Junior. @nunomazer - ademir.mazer.jr@gmail.com</p>
-            </footer>
-
+           
         </div> <!-- /container -->
 
-
+ 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="{{asset('bootstrap/assets/js/ie10-viewport-bug-workaround.js')}}"></script>
     </body>
