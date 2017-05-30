@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
 use Shoppvel\Models\Carrinho;
 use Shoppvel\Models\Produto;
+use Shoppvel\Models\Marca;
 //use Shoppvel\Controllers\ClienteController;
 use Illuminate\Support\Facades\Auth;
 use laravel\pagseguro\Config\Config;
@@ -38,7 +39,11 @@ class CarrinhoController extends Controller {
 
     function getListar() {
         $models = $this->getCarrinhoModels();
-        //$models['listmarcas'] = Marca::all();
+        if(isset($models['itens'][0]))
+            $id = $models['itens'][0]->produto->marca_id;
+        else
+            $id = rand(1,40);
+        $models['marcas'] = Marca::find($id)->paginate(4);
         return view('frente.carrinho-listar', $models);
     }
 

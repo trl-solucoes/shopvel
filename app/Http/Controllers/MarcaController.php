@@ -11,9 +11,9 @@ use Shoppvel\Models\Categoria;
 class MarcaController extends Controller {
 
     function getMarca($id) {
-        $models['categoria'] = \Shoppvel\Models\Categoria::find($id);
+        $models['categoria'] = Categoria::all();
         $models['listmarcas'] = Marca::all();
-        $models['marca'] = Produto::where('marca_id', '=', $id);
+        $models['marca'] = \Shoppvel\Models\Marca::find($id);
         return view('frente.produtos-marca', $models);
     }
 
