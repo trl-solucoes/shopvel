@@ -38,7 +38,7 @@ class ProdutoController extends Controller {
     function listProduto(){
         $models['listprodutos'] = Produto::all();
         $models['listcategorias'] = Categoria::all();
-        return view('admin.produtos.listProduto', $produtos);
+        return view('admin.produtos.listProduto', $models);
     }
 
     function formProduto(){
