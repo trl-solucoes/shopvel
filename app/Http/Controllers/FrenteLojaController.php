@@ -19,7 +19,7 @@ class FrenteLojaController extends Controller {
          */
         $models['produtos'] = Produto::where('destacado', 'LIKE', '1')->paginate(20);
         $models['listcategorias'] = Categoria::all();
-        //$models['listmarcas'] = Marca::all();
+        $models['listmarcas'] = Marca::all();
         //$models['produtos'] = \Shoppvel\Models\Produto::Paginate(20);
         return view('frente.entrada', $models);
     }
@@ -34,6 +34,7 @@ class FrenteLojaController extends Controller {
     ['destacado', '=', '1'],
     ['id', '<=', '40'],
 ])->paginate(20);
+        $models['listmarcas'] = Marca::all();
         return view('frente.entrada',$models);
     }
 }

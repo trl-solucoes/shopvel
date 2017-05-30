@@ -20,7 +20,7 @@ class CategoriaController extends Controller {
         
         // se um id foi passado
         $models['categoria'] = \Shoppvel\Models\Categoria::find($id);
-        //$models['listmarcas'] = Marca::all();
+        $models['listmarcas'] = Marca::all();
         return view('frente.produtos-categoria', $models);
     }
     

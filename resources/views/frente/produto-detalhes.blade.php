@@ -1,14 +1,11 @@
 @extends('layouts.frente-loja')
 @section('conteudo')
-
 <div class="panel-body">
     <div class="row col-md-12">
-        <div class="col-md-6">
+        <div class="col-md-3">
+            <h3 class="page-header text-info">{{$produto->nome}}</h3>
             <div class="thumbnail">
-                <img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}">
-                <h1 class="page-header text-info">
-                     {{$produto->nome}}
-                </h1>
+                <img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}"  data-zoom-image="{{route('imagem.file',$produto->imagem_nome)}}" id="img-produto">
              </div>
         </div>
         <div class="col-md-5 col-md-offset-1">
@@ -27,8 +24,7 @@
                     <h2 class="text-center text-warning"> Indisponível no momento</h2>
                 @endif
         </div>
-        </hr>
-        <div class="text-center col-md-6 row aval">
+        <div class="text-center col-md-4 col-md-offset-1 row aval">
             @if ($produto->avaliacao_qtde > 0) 
                 </br>
                 Média de avaliações <br/>
@@ -39,8 +35,24 @@
                 <span class="text-muted">Não avaliado</span>
             @endif
         </div>
-        <h4>Formas de pagamento</h4>
-        PAGSEGURO AQUI
+        <div class="text-center col-md-4 row">
+            <h4>Formas de pagamento</h4>
+            PAGSEGURO AQUI
+        </div>
+        <div class="text-center col-md-4 row aval">
+            <h4>Compartilhe essa oferta!!!</h4>
+            <div>
+                <a href="" class="btn btn-default">
+                    <img src="{{asset('image/gmail.png')}}" alt="Compartilhar no gmail" style="height:50px;width:50px;">
+                </a>
+                <a href="" class="btn btn-default">
+                    <img src="{{asset('image/facebook.png')}}" alt="Compartilhar no facebook" style="height:50px;width:50px;">
+                </a>
+                <a href="" class="btn btn-default">
+                    <img src="{{asset('image/whatsapp.png')}}" alt="Compartilhar no whatsapp" style="height:50px;width:50px;">
+                </a>
+            </div>
+        </div>
     </div>
 <div class="row col-md-11 col-md-offset-1">
     <h3 class="page-header" style="color:red;">Descrição detalhada</h3>
@@ -52,4 +64,12 @@
 </div>
 <br>
 </div>
+<script>
+    $("#img-produto").elevateZoom({
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 500,
+            lensFadeIn: 500,
+            lensFadeOut: 500
+});
+</script>
 @stop

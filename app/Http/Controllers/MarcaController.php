@@ -5,8 +5,17 @@ namespace Shoppvel\Http\Controllers;
 use Illuminate\Http\Request;
 use Shoppvel\Http\Requests;
 use Shoppvel\Models\Marca;
+use Shoppvel\Models\Produto;
+use Shoppvel\Models\Categoria;
 
 class MarcaController extends Controller {
+
+    function getMarca($id) {
+        $models['categoria'] = \Shoppvel\Models\Categoria::find($id);
+        $models['listmarcas'] = Marca::all();
+        $models['marca'] = Produto::where('marca_id', '=', $id);
+        return view('frente.produtos-marca', $models);
+    }
 
     function listMarca(){
         $models['listmarcas'] = Marca::all();

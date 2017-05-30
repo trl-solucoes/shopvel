@@ -62,6 +62,10 @@ Route::get('categoria/{id?}', [
     'as' => 'categoria.listar',
     'uses' => 'CategoriaController@getCategoria'
 ]);
+Route::get('marca/{id?}', [
+    'as' => 'marca.listar',
+    'uses' => 'MarcaController@getMarca'
+]);
 /*
  * ATENÇÃO para esta rota, ela deve estar antes de produto/{id}
  * para funcionar
