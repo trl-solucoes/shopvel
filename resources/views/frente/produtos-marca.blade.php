@@ -24,4 +24,9 @@
         </ul>
     </div>        
 </div>
+<div class='col-sm-12'>
+    <h2 class="page-header text-muted">
+        Produtos da marca {{$marca->nome}}
+    </h2>
+</div>
 @stop

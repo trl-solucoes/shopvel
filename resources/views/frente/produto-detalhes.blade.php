@@ -42,21 +42,28 @@
         <div class="text-center col-md-4 row aval">
             <h4>Compartilhe essa oferta!!!</h4>
             <div>
-                <a href="" class="btn btn-default">
-                    <img src="{{asset('image/gmail.png')}}" alt="Compartilhar no gmail" style="height:50px;width:50px;">
-                </a>
-                <a href="" class="btn btn-default">
-                    <img src="{{asset('image/facebook.png')}}" alt="Compartilhar no facebook" style="height:50px;width:50px;">
-                </a>
-                <a href="" class="btn btn-default">
-                    <img src="{{asset('image/whatsapp.png')}}" alt="Compartilhar no whatsapp" style="height:50px;width:50px;">
-                </a>
+                <a href="https://twitter.com/share" class="twitter-share-button btn btn-default" data-size="large" data-dnt="true">Tweet</a> 
+                    <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                        </script>
+                <!-- Your like button code -->
+                <div class="fb-share-button" data-href="https://www.facebook.com/Shoppvel-114194329168398/" data-layout="button" data-size="large" data-mobile-iframe="true">
+                    <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"></a>
+                </div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+                </script>
             </div>
         </div>
     </div>
-<div class="row col-md-11 col-md-offset-1">
+<div class="row col-md-10 col-md-offset-1">
     <h3 class="page-header" style="color:red;">Descrição detalhada</h3>
-    <div class="col-sm-11 text-justified" style="border:2px solid red;">
+    <div class="col-sm-12 text-justified" style="border:2px solid red;">
         {{$produto->descricao}}
     
     </div>
@@ -64,7 +71,7 @@
 </div>
 <br>
 </div>
-<script>
+<script type="text/javascript">
     $("#img-produto").elevateZoom({
             zoomWindowFadeIn: 500,
             zoomWindowFadeOut: 500,
