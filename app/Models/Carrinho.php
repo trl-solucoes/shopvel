@@ -41,6 +41,7 @@ class Carrinho {
         $item->produto = $p;
         $item->qtde = $qtde;
         $item->valor = 1 * $p->preco_venda;
+        $item->marca_id = $p->marca_id;
         
         $this->addItem($item);
 

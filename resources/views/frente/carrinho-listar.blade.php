@@ -4,9 +4,30 @@
 <div class="panel-body"></br>
 @if(Session::has('mensagem_sucesso'))
       {!! 'OK' !!}
-@endif</br></br>
-<div class='row'>
-    <div id='num_prod' class="text-muted col-sm-8">
+@endif
+<div class="row col-md-12">
+    <div id='num_prod' class="text-muted col-md-12">
+        <h2 class="page-header text-info">Aproveite e leve também</h2>
+    </div>
+    @if(isset($marcas))
+        @foreach ($marcas as $produto)
+            <a href="{{route('produto.detalhes', $produto->id)}}">
+            <div class="col-md-3" style="height:150px;">
+                <div class="thumbnail">
+                    <img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}" style="height: 70px;width:70px;">
+                    <div class="caption">
+                        <h3 class="teste">{{$produto->nome}}</h3>
+                    </div>
+                </div>
+            </div>
+            </a>
+        @endforeach
+    @else
+        <h4 class="page-header">Sem sugestões</h4>
+    @endif
+</div>
+<div class="row col-md-12">
+    <div id='num_prod' class="text-muted col-md-9">
         <h2 class="page-header text-info">Carrinho de compras</h2> {{$itens->count()}} produtos no carrinho
     </div>
     <a id="esvaziar" href="{{route('carrinho.esvaziar')}}" class="btn btn-warning col-sm-2 pull-right">

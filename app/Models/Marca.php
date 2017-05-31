@@ -10,12 +10,12 @@ class Marca extends Model
 		'nome',
 		'id'
 	];
-
-	public function produtos() {
-        return $this->belongsTo(Produto::class);
+	
+    public function produtos() {
+        return $this->hasMany(Produto::class);
     }
 
-    public function categoria() {
-        return $this->belongsTo(Categoria::class);
+    public function produto() {
+        return $this->belongsTo(Produto::class);
     }
 }

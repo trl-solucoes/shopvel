@@ -1,5 +1,5 @@
 body{
-	background-image: url("http://localhost/shopvel/public/image/bg1.jpg");
+	background-image: url("public/image/bg1.jpg");
 	background-size: 100% 100%;
 	background-attachment: fixed;
 	
@@ -74,7 +74,7 @@ body{
 
 .teste{
 	white-space: nowrap; 
-    width: 9em; 
+    width: 8em; 
     overflow: hidden;
     text-overflow: clip;
 }

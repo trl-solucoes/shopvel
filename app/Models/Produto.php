@@ -9,7 +9,8 @@ class Produto extends Model {
 		'nome',
 		'marca_id',
 		'marca',
-        'categoria_id'
+        'categoria_id',
+        'imagem_nome'
 	];
     public function marca() {
         return $this->belongsTo(Marca::class);
