@@ -139,7 +139,7 @@ return [
         Shoppvel\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         laravel\pagseguro\Platform\Laravel5\ServiceProvider::class,
-        KennedyTedesco\Validation\ValidationServiceProvider::class,
+        KennedyTedesco\Validation\ValidationServiceProvider::class
     ],
     /*
       |--------------------------------------------------------------------------
@@ -186,5 +186,6 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'PagSeguro' => laravel\pagseguro\Platform\Laravel5\PagSeguro::class
+       
     ],
 ];

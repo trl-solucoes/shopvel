@@ -238,6 +238,12 @@ Route::post('carrinho/avaliar', [
         'as'=>'admin.removeUser',
         'uses'=>'AdminController@removeUser'
       ]);
+     Route::any('admin/editUser',[
+        'as'=>'admin.editUser',
+        'uses'=>'AdminController@editUser'
+      ]);
+     Route::get('loginFacebook', 'FacebookController@login');
+    Route::get('facebook', 'FacebookController@pageFacebook');
 });
 
 

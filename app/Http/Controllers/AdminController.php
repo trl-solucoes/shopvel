@@ -95,4 +95,26 @@ class AdminController extends Controller {
         \Session::flash('mensagens-sucesso', 'Usuário excluído com Sucesso');
         return redirect()->route('admin.adminUsers');
     }
+     function editUser(Request $request)
+    {
+        
+        // retira pontos e traços do cpf pois eh melhor 
+        // gravar sem formatação para garantir padronização dos dados
+        if(isset($request->senha)){
+            User::find($request->id)->update([
+                'name' => $request->nome,
+                'endereco' => $request->endereco,
+                'password' => bcrypt($request->senha)
+                     
+            ]);
+        }else{
+             User::find($request->id)->update([
+                'name' => $request->nome,
+                'endereco' => $request->endereco,
+            ]);
+        } 
+         \Session::flash('mensagens-sucesso', 'Usuário atualizado com Sucesso!!');
+        return redirect()->route('admin.adminUsers');
+    }
+   
 }

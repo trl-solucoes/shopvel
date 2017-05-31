@@ -83,6 +83,7 @@ class AuthController extends Controller
         ]);
     }
     
+   
     /**
      * Sobrescreve o método register do trait de registo original do Laravel
      * para gerenciar os redirecionamentos de acordo com o local que está sendo 
@@ -117,4 +118,6 @@ class AuthController extends Controller
         
         return redirect()->intended($this->redirectPath());
     }
+
+    
 }
