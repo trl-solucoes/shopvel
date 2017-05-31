@@ -12,6 +12,10 @@ class Marca extends Model
 	];
 	
     public function produtos() {
+        return $this->hasMany(Produto::class);
+    }
+
+    public function produto() {
         return $this->belongsTo(Produto::class);
     }
 }

@@ -1,4 +1,4 @@
-<div class="row col-md-12  bg_menu" >
+<div class="row col-md-12 bg_menu" >
     <div clas="row" >
         <a href="{{url('/')}}"></a>
         <nav >

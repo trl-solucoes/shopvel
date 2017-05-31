@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use laravel\pagseguro\Config\Config;
 use laravel\pagseguro\Credentials\Credentials;
 use laravel\pagseguro\Checkout\Facade\CheckoutFacade;
+use DB;
 
 class CarrinhoController extends Controller {
 
@@ -39,11 +40,10 @@ class CarrinhoController extends Controller {
 
     function getListar() {
         $models = $this->getCarrinhoModels();
-        if(isset($models['itens'][0]))
+        if(isset($models['itens'][0])){
             $id = $models['itens'][0]->produto->marca_id;
-        else
-            $id = rand(1,40);
-        $models['marcas'] = Marca::find($id)->paginate(4);
+            $models['marcas'] = DB::table('marcas')->join('produtos', 'produtos.marca_id', '=', 'marcas.id')->where('produtos.marca_id', '=', $id)->take(4)->get();
+        }
         return view('frente.carrinho-listar', $models);
     }
 

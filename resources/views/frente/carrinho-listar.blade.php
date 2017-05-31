@@ -10,7 +10,7 @@
         <h2 class="page-header text-info">Aproveite e leve também</h2>
     </div>
     @if(isset($marcas))
-        @foreach ($marcas->produtos as $produto)
+        @foreach ($marcas as $produto)
             <a href="{{route('produto.detalhes', $produto->id)}}">
             <div class="col-md-3" style="height:150px;">
                 <div class="thumbnail">
@@ -22,9 +22,6 @@
             </div>
             </a>
         @endforeach
-        <div class="pull-right">
-            {{$marcas->produtos->links()}}
-        </div>
     @else
         <h4 class="page-header">Sem sugestões</h4>
     @endif
