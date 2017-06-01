@@ -242,9 +242,21 @@ Route::post('carrinho/avaliar', [
         'as'=>'admin.editUser',
         'uses'=>'AdminController@editUser'
       ]);
-     Route::get('loginFacebook', 'FacebookController@login');
-    Route::get('facebook', 'FacebookController@pageFacebook');
+      
 });
 
+      Route::get('loginFacebook', [
+        'as'=>'login.facebook',
+        'uses'=>'SocialAuthController@entrarFacebook'
+      ]);
+
+      Route::get('facebook', 'SocialAuthController@retornoFacebook');
+
+      Route::get('loginGoogle', [
+        'as'=>'login.google',
+        'uses'=>'SocialAuthController@entrarGoogle'
+      ]);
+
+      Route::get('google', 'SocialAuthController@retornoGoogle');
 
 //Route::get('/home', 'HomeController@index');

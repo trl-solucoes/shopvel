@@ -11,9 +11,9 @@
     <div class="row">
         
         @include('auth.login.form')
-        
         @include('auth.register.form')
 
     </div>
 </div>
+
 @endsection

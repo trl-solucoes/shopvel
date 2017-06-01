@@ -62,7 +62,7 @@ class ValidationException extends InvalidArgumentException implements ExceptionI
                 }
 
                 $value = $vars[$match[1]];
-                if ('name' == $match[1]) {
+                if ('name' == $match[1] && is_string($value)) {
                     return $value;
                 }
 
@@ -324,7 +324,7 @@ class ValidationException extends InvalidArgumentException implements ExceptionI
         return static::$defaultTemplates[$this->mode][$templateKey];
     }
 
-    protected function guessId()
+    public function guessId()
     {
         if (!empty($this->id) && $this->id != 'validation') {
             return $this->id;

@@ -138,8 +138,10 @@ return [
         Shoppvel\Providers\EventServiceProvider::class,
         Shoppvel\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        laravel\pagseguro\Platform\Laravel5\ServiceProvider::class,
-        KennedyTedesco\Validation\ValidationServiceProvider::class
+        KennedyTedesco\Validation\ValidationServiceProvider::class,
+        // Other service providers...
+
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------
@@ -185,7 +187,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'PagSeguro' => laravel\pagseguro\Platform\Laravel5\PagSeguro::class
-       
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 ];

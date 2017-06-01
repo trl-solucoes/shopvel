@@ -15,7 +15,7 @@ class UserAlterTable extends Migration {
         
         Schema::table('users', function ($table) {
             $table->longText('endereco')->default('');
-            $table->string('cpf', 11)->unique()->default('');
+            $table->string('cpf', 11)->default('');
         });
     }
 

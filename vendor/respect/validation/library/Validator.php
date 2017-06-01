@@ -11,9 +11,11 @@
 
 namespace Respect\Validation;
 
+use finfo;
 use ReflectionClass;
 use Respect\Validation\Exceptions\AllOfException;
 use Respect\Validation\Exceptions\ComponentException;
+use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Rules\AllOf;
 use Respect\Validation\Rules\Key;
 
@@ -47,7 +49,7 @@ use Respect\Validation\Rules\Key;
  * @method static Validator countryCode()
  * @method static Validator currencyCode()
  * @method static Validator cpf()
- * @method static Validator creditCard()
+ * @method static Validator creditCard(string $brand = null)
  * @method static Validator date(string $format = null)
  * @method static Validator digit(string $additionalChars = null)
  * @method static Validator directory()
@@ -62,6 +64,7 @@ use Respect\Validation\Rules\Key;
  * @method static Validator extension(string $extension)
  * @method static Validator factor(int $dividend)
  * @method static Validator falseVal()
+ * @method static Validator fibonacci()
  * @method static Validator file()
  * @method static Validator filterVar(int $filter, mixed $options = null)
  * @method static Validator finite()
@@ -70,6 +73,8 @@ use Respect\Validation\Rules\Key;
  * @method static Validator graph(string $additionalChars = null)
  * @method static Validator hexRgbColor()
  * @method static Validator identical(mixed $value)
+ * @method static Validator identityCard(string $countryCode)
+ * @method static Validator image(finfo $fileInfo = null)
  * @method static Validator imei()
  * @method static Validator in(mixed $haystack, bool $compareIdentical = false)
  * @method static Validator infinite()
@@ -77,12 +82,13 @@ use Respect\Validation\Rules\Key;
  * @method static Validator intVal()
  * @method static Validator intType()
  * @method static Validator ip(mixed $ipOptions = null)
- * @method static Validator iterable()
+ * @method static Validator iterableType()
  * @method static Validator json()
  * @method static Validator key(string $reference, Validatable $referenceValidator = null, bool $mandatory = true)
  * @method static Validator keyNested(string $reference, Validatable $referenceValidator = null, bool $mandatory = true)
  * @method static Validator keySet(Key $rule...)
  * @method static Validator keyValue(string $comparedKey, string $ruleName, string $baseKey)
+ * @method static Validator languageCode(string $set)
  * @method static Validator leapDate(string $format)
  * @method static Validator leapYear()
  * @method static Validator length(int $min = null, int $max = null, bool $inclusive = true)
@@ -108,7 +114,9 @@ use Respect\Validation\Rules\Key;
  * @method static Validator oneOf()
  * @method static Validator optional(Validatable $rule)
  * @method static Validator perfectSquare()
+ * @method static Validator pesel()
  * @method static Validator phone()
+ * @method static Validator phpLabel()
  * @method static Validator positive()
  * @method static Validator postalCode(string $countryCode)
  * @method static Validator primeNumber()
@@ -176,6 +184,19 @@ class Validator extends AllOf
             self::getFactory()->appendRulePrefix($rulePrefix);
         } else {
             self::getFactory()->prependRulePrefix($rulePrefix);
+        }
+    }
+
+    public function check($input)
+    {
+        try {
+            return parent::check($input);
+        } catch (ValidationException $exception) {
+            if (count($this->getRules()) == 1 && $this->template) {
+                $exception->setTemplate($this->template);
+            }
+
+            throw $exception;
         }
     }
 
