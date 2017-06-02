@@ -58,6 +58,8 @@
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
                 </script>
+
+                <a href="https://plus.google.com/share?url=https://www.facebook.com/Shoppvel-114194329168398/" onclick="javascript:window.open(this.href, '', 'enubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" title="Google+"><i class="fa fa-google-plus"></i>Google+</a>
             </div>
         </div>
     </div>

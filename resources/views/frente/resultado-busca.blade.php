@@ -8,10 +8,11 @@
             <span class="label label-info">{{$termo}}</span>
         </div>
         <div class="row">
-        <a href="" class="btn btn-primary">Menor preço</a>
-        <a href="" class="btn btn-primary">Maior preço</a>
-        <a href="" class="btn btn-primary">De A-Z</a>
-        <a href="" class="btn btn-primary">De Z-A</a>
+        {{$menor = "menor"}}
+        <a href="{{route('produto.filtrar', $termo,$menor)}}" class="btn btn-primary">Menor preço</a>
+        <a href="#" class="btn btn-primary">Maior preço</a>
+        <a href="#" class="btn btn-primary">De A-Z</a>
+        <a href="#" class="btn btn-primary">De Z-A</a>
     </div>
     </div>
     <table class="table table-striped">
@@ -29,7 +30,7 @@
 
             <tr>
                 <td>
-                    <img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}" style="width:150px;" >
+                    <img img src="{{route('imagem.file',$produto->imagem_nome)}}" alt="{{$produto->imagem_nome}}"  data-zoom-image="{{route('imagem.file',$produto->imagem_nome)}}" class="img-produto" style="width:150px;" >
                 </td>
                 <td>
                     <a href="{{route('produto.detalhes', $produto->id)}}">
@@ -61,4 +62,12 @@
     </div>
 
 @endif
+<script type="text/javascript">
+    $(".img-produto").elevateZoom({
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 500,
+            lensFadeIn: 500,
+            lensFadeOut: 500
+});
+</script>
 @stop

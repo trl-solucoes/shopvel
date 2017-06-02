@@ -30,9 +30,6 @@
     <div id='num_prod' class="text-muted col-md-9">
         <h2 class="page-header text-info">Carrinho de compras</h2> {{$itens->count()}} produtos no carrinho
     </div>
-    <a id="esvaziar" href="{{route('carrinho.esvaziar')}}" class="btn btn-warning col-sm-2 pull-right">
-        Esvaziar carrinho
-    </a>
     <div class="col-md-5 row frete pull-right">
     @if(isset($valorfrete))
         <p class="alert alert-success col-md-5">Entrega: {{$prazo}} dias,</br>Valor: R$ {{$valorfrete}} <a href="{{route('carrinho.listar')}}" class="btn btn-primary col-md-offset-1 glyphicon glyphicon-refresh"></a></p>
@@ -46,6 +43,9 @@
             </form>
         </div>
     @endif
+    <a id="esvaziar" href="{{route('carrinho.esvaziar')}}" class="btn btn-warning col-sm-2">
+        Esvaziar carrinho
+    </a>
 </div>
 <hr/>
 <table id="dsTable" class="table table-striped">

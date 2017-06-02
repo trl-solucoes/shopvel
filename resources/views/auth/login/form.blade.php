@@ -50,8 +50,8 @@
                         </button>
 
                         <a class="btn btn-link" href="{{ url('/password/reset') }}">Esqueceu sua senha?</a>
-                        <a   href="{{route('login.facebook')}}"><img src="image/fb.png" title="Logar com Facebook" style="width:30px;height:30px;"/></a>
-                        <a   href="{{route('login.google')}}"><img src="image/goo.png" title="Logar com Google" style="width:31px;height:32px;"/></a>
+                        <a   href="{{route('login.facebook')}}" onclick="javascript:window.open(this.href, '', 'enubar=no,toolbar=yes,resizable=yes,scrollbars=no,height=500,width=500');return false;"><img src="image/fb.png" title="Logar com Facebook" style="width:30px;height:30px;"/></a>
+                        <a   href="{{route('login.google')}}" onclick="javascript:window.open(this.href, '', 'enubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500');return false;"><img src="image/goo.png" title="Logar com Google" style="width:31px;height:32px;"/></a>
                     </div>
                 </div>
             </form>

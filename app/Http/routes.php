@@ -78,6 +78,12 @@ Route::get('produto/{id}', [
     'as' => 'produto.detalhes',
     'uses' => 'ProdutoController@getProdutoDetalhes'
 ]);
+
+Route::any('produto/filtrar/{termo}',[
+    'as'=> 'produto.filtrar',
+    'uses'=> 'ProdutoController@filtrar'
+]);
+
 Route::get('imagem/arquivo/{nome}', [
     'as' => 'imagem.file',
     'uses' => 'ImagemController@getImagemFile'
