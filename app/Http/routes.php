@@ -31,6 +31,8 @@ Route::post('/pagseguro/notification', [
 Route::auth();
 
 Route::get('/', 'FrenteLojaController@getIndex');
+Route::any('/', 'FrenteLojaController@getIndex');
+
 
 Route::get('admin/',function(){
   return view('frente.entrada');
@@ -265,4 +267,19 @@ Route::post('carrinho/avaliar', [
 
       Route::get('google', 'SocialAuthController@retornoGoogle');
 
+      //Recuperação de senha de login
+      Route::get('recuperaSenha',function(){
+        return view('/auth/login/formRecupSenha');
+      });
+      Route::post('recuperaSenha',[
+        'as'=>'recupera.senha',
+        'uses'=>'Auth\AuthController@recuperaSenha'
+        ]);        
+      Route::get('alteraSenha',function(){
+        return view('mail.alterasenha');
+      });
+      Route::post('alteraSenha',[
+        'as'=>'altera.senha',
+        'uses'=>'Auth\AuthController@alteraSenha'
+        ]);
 //Route::get('/home', 'HomeController@index');
