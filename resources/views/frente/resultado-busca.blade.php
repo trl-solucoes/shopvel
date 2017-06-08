@@ -8,7 +8,8 @@
             <span class="label label-info">{{$termo}}</span>
         </div>
         <div class="row">
-        <a href="#" class="btn btn-primary" onclick="filtro({{$termo}}, 'menor')">Menor preço</a>
+        <input type="hidden" value="{{$termo}}" id="termo">
+        <a href="#" class="btn btn-primary" onclick="filtro('menor')">Menor preço</a>
         <a href="#" class="btn btn-primary">Maior preço</a>
         <a href="#" class="btn btn-primary">De A-Z</a>
         <a href="#" class="btn btn-primary">De Z-A</a>
@@ -69,11 +70,19 @@
             lensFadeOut: 500
 });
 
-    function filtro(termo, condicao){
-        var pesquisa = "termo+".
+    function filtro(condicao){
+        var termo = $("#termo").val();
+        var pesquisa = "condicao="+condicao;
         $.ajax({
-            type: "POST",
-
+            type: 'GET',
+            url: "produto.filtrar",
+            data: pesquisa,
+            success:function(retorno){
+                console.log(retorno);
+            },
+            error:function(retorno){
+                console.log(retorno);
+            }
         })
     }
 </script>

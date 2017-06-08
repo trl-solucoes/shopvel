@@ -1,0 +1,40 @@
+{
+    "name": "michael/laravel-pagseguro",
+    "description": "Biblioteca de integração com o gateway de pagamento PagSeguro.",
+    "keywords": ["framework", "laravel", "Gateway Pagamento", "PagSeguro"],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "lib-curl": "*",
+        "lib-openssl": "*",
+        "lib-libxml": "*",
+        "illuminate/validation": ">=4.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-0":{
+            "laravel\\pagseguro\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael Douglas Barbosa Araujo",
+            "email": "michaeldouglas010790@gmail.com"
+        },
+        {
+            "name": "Isaque de Souza Barbosa",
+            "email": "isaquesb@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test:unit": "phpunit -c phpunit.xml tests/unit --coverage-html=./tests/phpunit"
+    },
+    "config":{
+        "bin-dir": "bin/"
+    },
+    "minimum-stability": "dev"
+}

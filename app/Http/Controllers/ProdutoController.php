@@ -115,7 +115,8 @@ class ProdutoController extends Controller {
         }
    }
 
-   public function filtrar($termo, $filtro){
+   public function filtrar(){
+    $produtos = "teste";
     return $produtos;
    }
 }

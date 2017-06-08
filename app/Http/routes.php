@@ -81,7 +81,7 @@ Route::get('produto/{id}', [
     'uses' => 'ProdutoController@getProdutoDetalhes'
 ]);
 
-Route::any('produto/filtrar/{termo}',[
+Route::any('produto/filtrar',[
     'as'=> 'produto.filtrar',
     'uses'=> 'ProdutoController@filtrar'
 ]);
