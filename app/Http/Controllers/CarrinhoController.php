@@ -43,6 +43,8 @@ class CarrinhoController extends Controller {
         if(isset($models['itens'][0])){
             $id = $models['itens'][0]->produto->marca_id;
             $models['marcas'] = DB::table('marcas')->join('produtos', 'produtos.marca_id', '=', 'marcas.id')->where('produtos.marca_id', '=', $id)->take(4)->get();
+        }else{
+            $models['marcas'] = DB::table('marcas')->join('produtos', 'produtos.marca_id', '=', 'marcas.id')->where('produtos.marca_id', '=', '12')->take(4)->get();
         }
         return view('frente.carrinho-listar', $models);
     }
