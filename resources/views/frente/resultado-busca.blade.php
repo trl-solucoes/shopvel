@@ -70,7 +70,11 @@
 });
 
     function filtro(termo, condicao){
-        $.ajax
+        var pesquisa = "termo+".
+        $.ajax({
+            type: "POST",
+
+        })
     }
 </script>
 @stop
