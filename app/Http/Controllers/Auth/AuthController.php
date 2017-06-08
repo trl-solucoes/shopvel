@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 
 class AuthController extends Controller
 {
@@ -117,6 +118,26 @@ class AuthController extends Controller
         }
         
         return redirect()->intended($this->redirectPath());
+    }
+    public function recuperaSenha(Request $request){
+     $user=User::where('email','LIKE',$request->email)->first();
+       $data['id']=$user->id;
+       $data['name']=$user->name;
+       $data['email']=$user->email;
+       $data['token']=$user->remember_token;
+       Mail::send('mail.recuperasenha',['data'=>$data], function($mail) use ($data) {
+         $mail->to($data['email']) ->subject('Redefinição de senha Shopvel');
+       });
+       \Session::flash('mensagens-sucesso', 'Um email foi enviado para a caixa '.$data['email'].'!!');
+        return back();
+    }
+
+    public function alteraSenha(Request $request){
+        User::find($request->id)->update([
+                'password' => bcrypt($request->senha)
+            ]);
+        \Session::flash('mensagens-sucesso', 'Senha alterada com sucesso!!');
+       return back();
     }
 
     
